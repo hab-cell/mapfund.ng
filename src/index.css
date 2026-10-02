@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --color-background: hsl(45 30% 98%);
+  --color-foreground: hsl(152 40% 12%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(152 40% 12%);
+  --color-muted: hsl(152 15% 95%);
+  --color-muted-foreground: hsl(152 10% 40%);
+  --color-border: hsl(152 15% 88%);
+  --color-input: hsl(152 15% 92%);
+
+  --color-primary: hsl(152 69% 31%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-primary-dark: hsl(152 69% 21%);
+  --color-primary-light: hsl(152 55% 45%);
+
+  --color-secondary: hsl(43 96% 56%);
+  --color-secondary-foreground: hsl(152 40% 12%);
+
+  --color-accent: hsl(43 96% 56%);
+  --color-accent-foreground: hsl(152 40% 12%);
+
+  --color-destructive: hsl(0 74% 50%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+
+  --color-success: hsl(152 69% 35%);
+  --color-warning: hsl(38 92% 50%);
+  --color-danger: hsl(0 74% 50%);
+
+  --color-sidebar: hsl(152 69% 15%);
+  --color-sidebar-foreground: hsl(45 30% 96%);
+  --color-sidebar-accent: hsl(43 96% 56%);
+
+  --radius: 0.75rem;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(152 15% 82%); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(152 15% 70%); }
+
+/* Progress bar animation */
+@keyframes fillProgress {
+  from { width: 0; }
+}
+.progress-fill {
+  animation: fillProgress 1s ease-out;
+}
+
+@keyframes tickerScroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+.ticker-item {
+  animation: tickerScroll 25s linear infinite;
+}
+
+@keyframes confettiFall {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  animation: confettiFall 3s linear forwards;
+  pointer-events: none;
+  z-index: 100;
+}
